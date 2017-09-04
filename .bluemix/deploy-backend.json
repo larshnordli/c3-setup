@@ -20,12 +20,12 @@
             "description": "The bluemix space",
             "type": "string"
         },
-       "prod-app-name": {
+       "backend-prod-app-name": {
             "description": "The name of your Backend app",
             "type": "string"
         }
     },
-    "required": ["prod-region", "prod-organization", "prod-space", "prod-app-name"],
+    "required": ["prod-region", "prod-organization", "prod-space", "backend-prod-app-name"],
     "form": [
        {
           "type": "validator",
@@ -35,7 +35,7 @@
           "type": "text",
           "readonly": false,
           "title": "Backend App Name",
-          "key": "prod-app-name"
+          "key": "backend-prod-app-name"
         },
         {
             "type": "table",

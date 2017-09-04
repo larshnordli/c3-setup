@@ -80,7 +80,7 @@ frontend-deploy:
     prod-region: "{{region}}"
     prod-organization: "{{organization}}"
     prod-space: "{{space}}"
-    prod-app-name: "{{frontend-repo.parameters.repo_name}}"
+    frontend-prod-app-name: "{{frontend-repo.parameters.repo_name}}"
 
 #Deployment Backend
 backend-deploy:
@@ -91,4 +91,4 @@ backend-deploy:
     prod-region: "{{region}}"
     prod-organization: "{{organization}}"
     prod-space: "{{space}}"
-    prod-app-name: "{{backend-repo.parameters.repo_name}}"
+    backend-prod-app-name: "{{backend-repo.parameters.repo_name}}"
