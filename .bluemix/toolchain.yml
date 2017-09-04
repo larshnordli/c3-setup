@@ -41,7 +41,7 @@ frontend-build:
     configuration:
      content: $file(pipeline-frontend.yml)
      env:
-      SAMPLE_REPO: "frontend-repo"
+      FRONTEND_REPO: "frontend-repo"
       CF_APP_NAME: "{{deploy.parameters.frontend-prod-app-name}}-frontend"
       CF_TEST_APP_NAME: "{{deploy.parameters.frontend-prod-app-name}}-frontend-test"
       PROD_SPACE_NAME: "{{deploy.parameters.frontend-prod-space}}"
@@ -60,7 +60,7 @@ backend-build:
     configuration:
      content: $file(pipeline-backend.yml)
      env:
-      SAMPLE_REPO: "backend-repo"
+      BACKEND_REPO: "backend-repo"
       CF_APP_NAME: "{{deploy.parameters.backend-prod-app-name}}-backend"
       CF_TEST_APP_NAME: "{{deploy.parameters.backend-prod-app-name}}-backend-test"
       PROD_SPACE_NAME: "{{deploy.parameters.backend-prod-space}}"
