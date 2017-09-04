@@ -33,10 +33,10 @@ stages:
   - name: Deploy Test
     type: deployer
     target:
-      region_id: ${PROD_REGION_ID}
-      organization: ${PROD_ORG_NAME}
-      space: ${PROD_SPACE_NAME}
-      application: ${CF_TEST_APP_NAME}
+      region_id: ${BE_PROD_REGION_ID}
+      organization: ${BE_PROD_ORG_NAME}
+      space: ${BE_PROD_SPACE_NAME}
+      application: ${BE_CF_TEST_APP_NAME}
     script: |
       #!/bin/bash
       cf push "${CF_APP}" -f manifest-backend.yml
@@ -53,10 +53,10 @@ stages:
   - name: Deploy
     type: deployer
     target:
-      region_id: ${PROD_REGION_ID}
-      organization: ${PROD_ORG_NAME}
-      space: ${PROD_SPACE_NAME}
-      application: ${CF_APP_NAME}
+      region_id: ${BE_PROD_REGION_ID}
+      organization: ${BE_PROD_ORG_NAME}
+      space: ${BE_PROD_SPACE_NAME}
+      application: ${BE_CF_APP_NAME}
     script: |-
       #!/bin/bash
       cf push "${CF_APP}" -f manifest-backend.yml
