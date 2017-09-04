@@ -42,11 +42,11 @@ frontend-build:
      content: $file(pipeline-frontend.yml)
      env:
       FRONTEND_REPO: "frontend-repo"
-      CF_APP_NAME: "{{deploy.parameters.frontend-prod-app-name}}-frontend"
-      CF_TEST_APP_NAME: "{{deploy.parameters.frontend-prod-app-name}}-frontend-test"
-      PROD_SPACE_NAME: "{{deploy.parameters.frontend-prod-space}}"
-      PROD_ORG_NAME: "{{deploy.parameters.frontend-prod-organization}}"
-      PROD_REGION_ID: "{{deploy.parameters.frontend-prod-region}}"
+      CF_APP_NAME: "{{deploy.parameters.frontend-prod-app-name}}"
+      CF_TEST_APP_NAME: "{{deploy.parameters.frontend-prod-app-name}}-test"
+      PROD_SPACE_NAME: "{{deploy.parameters.prod-space}}"
+      PROD_ORG_NAME: "{{deploy.parameters.prod-organization}}"
+      PROD_REGION_ID: "{{deploy.parameters.prod-region}}"
      execute: true
     services: ["frontend-repo"]
   hidden: [form, description]
@@ -61,11 +61,11 @@ backend-build:
      content: $file(pipeline-backend.yml)
      env:
       BACKEND_REPO: "backend-repo"
-      CF_APP_NAME: "{{deploy.parameters.backend-prod-app-name}}-backend"
-      CF_TEST_APP_NAME: "{{deploy.parameters.backend-prod-app-name}}-backend-test"
-      PROD_SPACE_NAME: "{{deploy.parameters.backend-prod-space}}"
-      PROD_ORG_NAME: "{{deploy.parameters.backend-prod-organization}}"
-      PROD_REGION_ID: "{{deploy.parameters.backend-prod-region}}"
+      CF_APP_NAME: "{{deploy.parameters.prod-app-name}}"
+      CF_TEST_APP_NAME: "{{deploy.parameters.backend-prod-app-name}}-test"
+      PROD_SPACE_NAME: "{{deploy.parameters.prod-space}}"
+      PROD_ORG_NAME: "{{deploy.parameters.prod-organization}}"
+      PROD_REGION_ID: "{{deploy.parameters.prod-region}}"
      execute: true
     services: ["backend-repo"]
   hidden: [form, description]
