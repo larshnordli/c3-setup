@@ -5,7 +5,7 @@
         "$ref": "deploy-localized-struct.json"
     },
     "description": "sample toolchain",
-    "longDescription": "The Delivery Pipeline automates continuous deployment.",
+    "longDescription": "Setup your Front-end Delivery Pipeline Tool",
     "type": "object",
     "properties": {
         "prod-region": {
