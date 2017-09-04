@@ -1,46 +1,46 @@
 declared_services:
- - backend-conversation:
+ - ${CF_APP_NAME}-conversation:
   label: conversation
-  plan: Free
- - backend-cloudant:
-  label: cloudant
-  plan: Free
- - backend-language-translator:
-  label: language-translator
-  plan: Free
- - backend-stt:
-  label: speech-to-text
-  plan: Free
- - backend-tts:
-  label: text-to-speech
-  plan: Free
- - backend-tone-analyzer:
-  label: tone-analyzer
-  plan: Free
+  plan: Lite
+ - ${CF_APP_NAME}-cloudant:
+  label: cloudantNoSQLDB
+  plan: Lite
+ - ${CF_APP_NAME}-language-translator:
+  label: language_translator
+  plan: Lite
+ - ${CF_APP_NAME}-stt:
+  label: speech_to_text
+  plan: Standard
+ - ${CF_APP_NAME}-tts:
+  label: text_to_speech
+  plan: Standard
+ - ${CF_APP_NAME}-tone-analyzer:
+  label: tone_analyzer
+  plan: Lite
 applications:
 - path: .
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: ${CF_APP_NAME}
+  name: ${CF_APP_NAME}-backend
   disk_quota: 1024M
   services:
-   - backend-conversation
-   - backend-cloudant
-   - backend-language-translator
-   - backend-stt
-   - backend-tts
-   - backend-tone-analyzer
+   - ${CF_APP_NAME}-conversation
+   - ${CF_APP_NAME}-cloudant
+   - ${CF_APP_NAME}-language-translator
+   - ${CF_APP_NAME}-stt
+   - ${CF_APP_NAME}-tts
+   - ${CF_APP_NAME}-tone-analyzer
 - path: .
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: ${CF_APP_NAME}-test
+  name: ${CF_APP_NAME}-backend-test
   disk_quota: 1024M
   services:
-   - backend-conversation
-   - backend-cloudant
-   - backend-language-translator
-   - backend-stt
-   - backend-tts
-   - backend-tone-analyzer
+   - ${CF_APP_NAME}-conversation
+   - ${CF_APP_NAME}-cloudant
+   - ${CF_APP_NAME}-language-translator
+   - ${CF_APP_NAME}-stt
+   - ${CF_APP_NAME}-tts
+   - ${CF_APP_NAME}-tone-analyzer
