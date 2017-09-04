@@ -1,0 +1,15 @@
+{
+  "name": "c3-setup",
+  "version": "1.0.0",
+  "description": "To make job pass",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.ng.bluemix.net/lars.henrik.nordli/c3-setup.git"
+  },
+  "author": "Lars Henrik Nordli",
+  "license": "ISC"
+}
