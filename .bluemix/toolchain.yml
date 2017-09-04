@@ -74,7 +74,7 @@ backend-build:
 #Deployment Front-end
 frontend-deploy:
   schema:
-    $ref: deploy.json
+    $ref: deploy-frontend.json
   service-category: pipeline
   parameters:
     prod-region: "{{region}}"
@@ -85,7 +85,7 @@ frontend-deploy:
 #Deployment Backend
 backend-deploy:
   schema:
-    $ref: deploy.json
+    $ref: deploy-backend.json
   service-category: pipeline
   parameters:
     prod-region: "{{region}}"
