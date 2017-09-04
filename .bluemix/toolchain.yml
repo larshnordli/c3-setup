@@ -1,20 +1,18 @@
----
-template
- default_locale: en
- locales:
+default_locale: en
+locales:
    $ref: locales.yml
- name: "C3 Demo DevOps Setup"
- description: "Includes creation of two code repos and two delivery pipelines, ready for app creation."
- version: 0.1
- image: data:image/svg+xml;base64,$file(toolchain.svg,base64)
- icon: data:image/svg+xml;base64,$file(icon.svg,base64)
- required:
-  - frontend-deploy
-  - frontend-repo
-  - frontend-build
-  - backend-deploy
-  - backend-repo
-  - backend-build
+name: "C3 Demo DevOps Setup"
+description: "Includes creation of two code repos and two delivery pipelines, ready for app creation."
+version: 0.1
+image: data:image/svg+xml;base64,$file(toolchain.svg,base64)
+icon: data:image/svg+xml;base64,$file(icon.svg,base64)
+required:
+ - frontend-deploy
+ - frontend-repo
+ - frontend-build
+ - backend-deploy
+ - backend-repo
+ - backend-build
 
 # Github repos: Front-end
 frontend-repo:
