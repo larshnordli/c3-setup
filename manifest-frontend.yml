@@ -1,0 +1,11 @@
+applications:
+- disk_quota: 128M
+  name: c3-frontend
+  path: dist/
+  domain: mybluemix.net
+  instances: 1
+  memory: 128M
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  stack: cflinuxfs2
+  env:
+    FORCE_HTTPS: true

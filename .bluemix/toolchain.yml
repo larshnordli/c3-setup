@@ -1,0 +1,84 @@
+---
+template
+ default_locale: en
+ locales:
+   $ref: locales.yml
+ name: "C3 Demo DevOps Setup"
+ description: "Includes creation of two code repos and two delivery pipelines, ready for app creation."
+ version: 0.1
+ image: data:image/svg+xml;base64,$file(toolchain.svg,base64)
+ icon: data:image/svg+xml;base64,$file(icon.svg,base64)
+ required:
+  - deploy
+  - frontend-repo
+  - frontend-build
+  - backend-repo
+  - backend-build
+
+# Github repos: Front-end
+frontend-repo:
+  service_id: hostedgit
+  parameters:
+    repo_name: "{{name}}-frontend"
+    repo_url: https://git.ng.bluemix.net/lars.henrik.nordli/c3-setup
+    type: clone
+    has_issues: false
+
+# Github repos: Backend
+backend-repo:
+  service_id: hostedgit
+  parameters:
+    repo_name: "{{name}}-backend"
+    repo_url: https://git.ng.bluemix.net/lars.henrik.nordli/c3-setup
+    type: clone
+    has_issues: false
+
+# Pipelines
+frontend-build:
+  service_id: pipeline
+  parameters:
+    name: "{{name}}-frontend"
+    ui-pipeline: true
+    configuration:
+     content: $file(pipeline-frontend.yml)
+     env:
+      SAMPLE_REPO: "frontend-repo"
+      CF_APP_NAME: "{{deploy.parameters.prod-app-name}}"
+      CF_TEST_APP_NAME: "{{deploy.parameters.prod-app-name}}-test"
+      PROD_SPACE_NAME: "{{deploy.parameters.prod-space}}"
+      PROD_ORG_NAME: "{{deploy.parameters.prod-organization}}"
+      PROD_REGION_ID: "{{deploy.parameters.prod-region}}"
+     execute: true
+    services: ["frontend-repo"]
+  hidden: [form, description]
+
+# Pipelines
+backend-build:
+  service_id: pipeline
+  parameters:
+    name: "{{name}}-backend"
+    ui-pipeline: true
+    configuration:
+     content: $file(pipeline-backend.yml)
+     env:
+      SAMPLE_REPO: "backend-repo"
+      CF_APP_NAME: "{{deploy.parameters.prod-app-name}}"
+      CF_TEST_APP_NAME: "{{deploy.parameters.prod-app-name}}-test"
+      PROD_SPACE_NAME: "{{deploy.parameters.prod-space}}"
+      PROD_ORG_NAME: "{{deploy.parameters.prod-organization}}"
+      PROD_REGION_ID: "{{deploy.parameters.prod-region}}"
+     execute: true
+    services: ["backend-repo"]
+  hidden: [form, description]
+
+
+#Deployment
+deploy:
+  schema:
+    $ref: deploy.json
+  service-category: pipeline
+  parameters:
+    prod-region: "{{region}}"
+    prod-organization: "{{organization}}"
+    prod-space: prod
+    prod-app-name: "{{sample-repo.parameters.repo_name}}"
