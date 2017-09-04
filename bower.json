@@ -1,0 +1,17 @@
+{
+  "name": "c3-setup",
+  "description": "To make job pass",
+  "main": "index.js",
+  "authors": [
+    "Lars Henrik Nordli"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
