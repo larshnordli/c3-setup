@@ -9,9 +9,10 @@ template
  image: data:image/svg+xml;base64,$file(toolchain.svg,base64)
  icon: data:image/svg+xml;base64,$file(icon.svg,base64)
  required:
-  - deploy
+  - frontend-deploy
   - frontend-repo
   - frontend-build
+  - backend-deploy
   - backend-repo
   - backend-build
 
@@ -43,8 +44,8 @@ frontend-build:
      content: $file(pipeline-frontend.yml)
      env:
       SAMPLE_REPO: "frontend-repo"
-      CF_APP_NAME: "{{deploy.parameters.prod-app-name}}"
-      CF_TEST_APP_NAME: "{{deploy.parameters.prod-app-name}}-test"
+      CF_APP_NAME: "{{deploy.parameters.prod-app-name}}-frontend"
+      CF_TEST_APP_NAME: "{{deploy.parameters.prod-app-name}}-frontend-test"
       PROD_SPACE_NAME: "{{deploy.parameters.prod-space}}"
       PROD_ORG_NAME: "{{deploy.parameters.prod-organization}}"
       PROD_REGION_ID: "{{deploy.parameters.prod-region}}"
@@ -62,8 +63,8 @@ backend-build:
      content: $file(pipeline-backend.yml)
      env:
       SAMPLE_REPO: "backend-repo"
-      CF_APP_NAME: "{{deploy.parameters.prod-app-name}}"
-      CF_TEST_APP_NAME: "{{deploy.parameters.prod-app-name}}-test"
+      CF_APP_NAME: "{{deploy.parameters.prod-app-name}}-backend"
+      CF_TEST_APP_NAME: "{{deploy.parameters.prod-app-name}}-backend-test"
       PROD_SPACE_NAME: "{{deploy.parameters.prod-space}}"
       PROD_ORG_NAME: "{{deploy.parameters.prod-organization}}"
       PROD_REGION_ID: "{{deploy.parameters.prod-region}}"
@@ -72,8 +73,8 @@ backend-build:
   hidden: [form, description]
 
 
-#Deployment
-deploy:
+#Deployment Front-end
+frontend-deploy:
   schema:
     $ref: deploy.json
   service-category: pipeline
@@ -81,4 +82,15 @@ deploy:
     prod-region: "{{region}}"
     prod-organization: "{{organization}}"
     prod-space: prod
-    prod-app-name: "{{sample-repo.parameters.repo_name}}"
+    prod-app-name: "{{frontend-repo.parameters.repo_name}}"
+
+#Deployment Backend
+backend-deploy:
+  schema:
+    $ref: deploy.json
+  service-category: pipeline
+  parameters:
+    prod-region: "{{region}}"
+    prod-organization: "{{organization}}"
+    prod-space: prod
+    prod-app-name: "{{backend-repo.parameters.repo_name}}"

@@ -1,10 +1,46 @@
+declared_services:
+ - {{appName}}-conversation:
+  label: conversation
+  plan: Free
+ - backend-cloudant:
+  label: cloudant
+  plan: Free
+ - backend-language-translator:
+  label: language-translator
+  plan: Free
+ - backend-stt:
+  label: speech-to-text
+  plan: Free
+ - backend-tts:
+  label: text-to-speech
+  plan: Free
+ - backend-tone-analyzer:
+  label: tone-analyzer
+  plan: Free
 applications:
 - path: .
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: nodeseedapp
+  name: ${CF_APP_NAME}
   disk_quota: 1024M
   services:
-   - conversation
-   - cloudant
+   - backend-conversation
+   - backend-cloudant
+   - backend-language-translator
+   - backend-stt
+   - backend-tts
+   - backend-tone-analyzer
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: ${CF_APP_NAME}-test
+  disk_quota: 1024M
+  services:
+   - backend-conversation
+   - backend-cloudant
+   - backend-language-translator
+   - backend-stt
+   - backend-tts
+   - backend-tone-analyzer
