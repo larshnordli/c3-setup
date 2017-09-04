@@ -7,12 +7,12 @@ version: 0.1
 image: data:image/svg+xml;base64,$file(toolchain.svg,base64)
 icon: data:image/svg+xml;base64,$file(icon.svg,base64)
 required:
- - frontend-deploy
  - frontend-repo
  - frontend-build
- - backend-deploy
+ - frontend-deploy
  - backend-repo
  - backend-build
+ - backend-deploy
 
 # Github repos: Front-end
 frontend-repo:

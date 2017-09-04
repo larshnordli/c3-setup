@@ -1,5 +1,5 @@
 declared_services:
- - {{appName}}-conversation:
+ - backend-conversation:
   label: conversation
   plan: Free
  - backend-cloudant:
