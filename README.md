@@ -5,7 +5,7 @@ Use this project to setup required DevOps-components for a C3 Prototype Instance
 
 ##How to use
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://git.ng.bluemix.net/lars.henrik.nordli/c3-setup)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://console.bluemix.net/devops/setup/deploy?repository=https://git.ng.bluemix.net/lars.henrik.nordli/c3-setup)
 
 1. Select a name for the prototype. F.ex., 'cloud-airlines'. You will create two code repos: 'cloud-airlines-frontend' and 'cloud-airlines-backend'. 
 2. Fetch front-end and backend projects locally.
