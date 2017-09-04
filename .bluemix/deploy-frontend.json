@@ -8,24 +8,24 @@
     "longDescription": "The Delivery Pipeline automates continuous deployment.",
     "type": "object",
     "properties": {
-        "frontend-prod-region": {
+        "prod-region": {
             "description": "The bluemix region",
             "type": "string"
         },
-        "frontend-prod-organization": {
+        "prod-organization": {
             "description": "The bluemix org",
             "type": "string"
         },
-       "frontend-prod-space": {
+       "prod-space": {
             "description": "The bluemix space",
             "type": "string"
         },
-       "frontend-prod-app-name": {
+       "prod-app-name": {
             "description": "The name of your Front-end app",
             "type": "string"
         }
     },
-    "required": ["frontend-prod-region", "frontend-prod-organization", "frontend-prod-space", "frontend-prod-app-name"],
+    "required": ["prod-region", "prod-organization", "prod-space", "prod-app-name"],
     "form": [
        {
           "type": "validator",
@@ -34,8 +34,8 @@
         {
           "type": "text",
           "readonly": false,
-          "title": "App name",
-          "key": "frontend-prod-app-name"
+          "title": "Front-end App Name",
+          "key": "prod-app-name"
         },
         {
             "type": "table",
@@ -64,15 +64,15 @@
                 },
                 {
                   "type": "select",
-                  "key": "frontend-prod-region"
+                  "key": "prod-region"
                 },
                 {
                   "type": "select",
-                  "key": "frontend-prod-organization"
+                  "key": "prod-organization"
                 },
                 {
                   "type": "select",
-                  "key": "frontend-prod-space",
+                  "key": "prod-space",
                   "readonly": false
                 }
             ]
