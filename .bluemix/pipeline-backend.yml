@@ -37,6 +37,8 @@ stages:
       organization: ${BE_PROD_ORG_NAME}
       space: ${BE_PROD_SPACE_NAME}
       application: ${BE_CF_TEST_APP_NAME}
+      environment:
+        CUSTOM_APP_NAME: ${CUSTOM_APP_NAME}
     script: |
       #!/bin/bash
         # Create Services
@@ -78,6 +80,8 @@ stages:
       organization: ${BE_PROD_ORG_NAME}
       space: ${BE_PROD_SPACE_NAME}
       application: ${BE_CF_APP_NAME}
+      environment:
+        CUSTOM_APP_NAME: ${CUSTOM_APP_NAME}
     script: |-
       #!/bin/bash
       cf push "${CF_APP}" -f manifest-backend.yml
