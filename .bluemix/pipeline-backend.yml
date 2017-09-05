@@ -39,7 +39,7 @@ stages:
       application: ${BE_CF_TEST_APP_NAME}
     script: |
       #!/bin/bash
-      cf push "${CF_APP}" -f manifest-backend.yml
+      cf push "${CF_APP}" -f manifest-backend-test.yml
 - name: Deploy to Production
   inputs:
   - type: job
