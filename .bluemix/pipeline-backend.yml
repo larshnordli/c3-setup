@@ -33,9 +33,6 @@ stages:
   - name: CUSTOM_APP_NAME 
     value: ${CUSTOM_APP_NAME}
     type: text
-  - name: DATABASE_NAME
-    value: "c3_history"
-    type: text
   jobs:
   - name: Deploy Test
     type: deployer
@@ -48,7 +45,7 @@ stages:
       #!/bin/bash
         # Create Services
         cf create-service conversation free "${CUSTOM_APP_NAME}"-conversation
-        cf create-service cloudantNoSQLDB Lite "${CUSTOM_APP_NAME}"-cloudant "${DATABASE_NAME}"
+        cf create-service cloudantNoSQLDB Lite "${CUSTOM_APP_NAME}"-cloudant c3_history
         cf create-service language_translator lite "${CUSTOM_APP_NAME}"-language-translator
         cf create-service speech_to_text standard "${CUSTOM_APP_NAME}"-stt
         cf create-service text_to_speech standard "${CUSTOM_APP_NAME}"-tts
