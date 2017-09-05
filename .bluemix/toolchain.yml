@@ -60,13 +60,13 @@ backend-build:
     configuration:
      content: $file(pipeline-backend.yml)
      env:
-      APP_NAME: "{{name}}"
       BACKEND_REPO: "backend-repo"
       BE_CF_APP_NAME: "{{backend-deploy.parameters.backend-prod-app-name}}"
       BE_CF_TEST_APP_NAME: "{{backend-deploy.parameters.backend-prod-app-name}}-test"
       BE_PROD_SPACE_NAME: "{{backend-deploy.parameters.prod-space}}"
       BE_PROD_ORG_NAME: "{{backend-deploy.parameters.prod-organization}}"
       BE_PROD_REGION_ID: "{{backend-deploy.parameters.prod-region}}"
+      CUSTOM_APP_NAME: "{{name}}"
      execute: true
     services: ["backend-repo"]
   hidden: [form, description]
