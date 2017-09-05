@@ -37,7 +37,10 @@ stages:
       organization: ${BE_PROD_ORG_NAME}
       space: ${BE_PROD_SPACE_NAME}
       application: ${BE_CF_TEST_APP_NAME}
-      CUSTOM_APP_NAME: ${CUSTOM_APP_NAME}
+      properties:
+        - name: CUSTOM_APP_NAME 
+          value: ${CUSTOM_APP_NAME}
+          type: text
     script: |
       #!/bin/bash
         # Create Services
@@ -79,7 +82,10 @@ stages:
       organization: ${BE_PROD_ORG_NAME}
       space: ${BE_PROD_SPACE_NAME}
       application: ${BE_CF_APP_NAME}
-      CUSTOM_APP_NAME: ${CUSTOM_APP_NAME}
+      properties:
+        - name: CUSTOM_APP_NAME 
+          value: ${CUSTOM_APP_NAME}
+          type: text
     script: |-
       #!/bin/bash
       cf push "${CF_APP}" -f manifest-backend.yml
