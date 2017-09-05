@@ -4,4 +4,5 @@ applications:
   instances: 1
   domain: mybluemix.net
   name: backend-app
+  buildpack: nodejs_buildpack
   disk_quota: 1024M
