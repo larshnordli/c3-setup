@@ -39,7 +39,6 @@ stages:
       application: ${BE_CF_TEST_APP_NAME}
     script: |
       #!/bin/bash
-      if [ ${SETUP} == "true" ] ; then
         # Create Services
         cf create-service conversation lite "${BE_CF_APP_NAME}"-conversation
         cf create-service cloudantNoSQLDB lite "${BE_CF_APP_NAME}"-cloudant
@@ -47,11 +46,10 @@ stages:
         cf create-service speech_to_text standard "${BE_CF_APP_NAME}"-stt
         cf create-service text_to_speech standard "${BE_CF_APP_NAME}"-tts
         cf create-service tone_analyzer lite "${BE_CF_APP_NAME}"-tone-analyzer
-      fi
+
 
       cf push "${CF_APP}" -f manifest-backend.yml
-      
-      if [ ${SETUP} == "true" ] ; then
+
         # Bind Services
         cf bind-service "${CF_APP}" "${BE_CF_APP_NAME}"-conversation
         cf bind-service "${CF_APP}" "${BE_CF_APP_NAME}"-cloudant
@@ -59,7 +57,6 @@ stages:
         cf bind-service "${CF_APP}" "${BE_CF_APP_NAME}"-stt
         cf bind-service "${CF_APP}" "${BE_CF_APP_NAME}"-tts
         cf bind-service "${CF_APP}" "${BE_CF_APP_NAME}"-tone-analyzer
-      fi
 
       # View logs
       cf logs "${CF_APP}" --recent
@@ -84,7 +81,6 @@ stages:
       #!/bin/bash
       cf push "${CF_APP}" -f manifest-backend.yml
 
-      if [ ${SETUP} == "true" ] ; then
         # Bind Services
         cf bind-service "${CF_APP}" "${BE_CF_APP_NAME}"-conversation
         cf bind-service "${CF_APP}" "${BE_CF_APP_NAME}"-cloudant
@@ -92,9 +88,6 @@ stages:
         cf bind-service "${CF_APP}" "${BE_CF_APP_NAME}"-stt
         cf bind-service "${CF_APP}" "${BE_CF_APP_NAME}"-tts
         cf bind-service "${CF_APP}" "${BE_CF_APP_NAME}"-tone-analyzer
-      fi
-
-      ${SETUP} = "false"
 
       # View logs
       cf logs "${CF_APP}" --recent
