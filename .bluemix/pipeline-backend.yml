@@ -44,13 +44,13 @@ stages:
     script: |
       #!/bin/bash
         # Create Services
-        echo cf create-service conversation free "${CUSTOM_APP_NAME}"-conversation
-        cf create-service conversation free "${CUSTOM_APP_NAME}"-conversation
-        cf create-service cloudantNoSQLDB free "${CUSTOM_APP_NAME}"-cloudant
-        cf create-service language_translator free "${CUSTOM_APP_NAME}"-language-translator
+        echo cf create-service conversation lite "${CUSTOM_APP_NAME}"-conversation
+        cf create-service conversation lite "${CUSTOM_APP_NAME}"-conversation
+        cf create-service cloudantNoSQLDB lite "${CUSTOM_APP_NAME}"-cloudant
+        cf create-service language_translator lite "${CUSTOM_APP_NAME}"-language-translator
         cf create-service speech_to_text standard "${CUSTOM_APP_NAME}"-stt
         cf create-service text_to_speech standard "${CUSTOM_APP_NAME}"-tts
-        cf create-service tone_analyzer free "${CUSTOM_APP_NAME}"-tone-analyzer
+        cf create-service tone_analyzer lite "${CUSTOM_APP_NAME}"-tone-analyzer
 
 
       cf push "${CF_APP}" -f manifest-backend.yml
