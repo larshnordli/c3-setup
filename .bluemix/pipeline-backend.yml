@@ -40,6 +40,7 @@ stages:
     script: |
       #!/bin/bash
         # Create Services
+        echo "cf create-service conversation free "${BE_CF_APP_NAME}"-conversation"
         cf create-service conversation free "${BE_CF_APP_NAME}"-conversation
         cf create-service cloudantNoSQLDB free "${BE_CF_APP_NAME}"-cloudant
         cf create-service language_translator free "${BE_CF_APP_NAME}"-language-translator
