@@ -60,6 +60,7 @@ backend-build:
     configuration:
      content: $file(pipeline-backend.yml)
      env:
+      APP_NAME: "{{name}}"
       BACKEND_REPO: "backend-repo"
       BE_CF_APP_NAME: "{{backend-deploy.parameters.backend-prod-app-name}}"
       BE_CF_TEST_APP_NAME: "{{backend-deploy.parameters.backend-prod-app-name}}-test"
