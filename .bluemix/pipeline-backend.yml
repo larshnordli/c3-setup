@@ -62,6 +62,8 @@ stages:
         cf bind-service "${CF_APP}" "${CUSTOM_APP_NAME}"-tts
         cf bind-service "${CF_APP}" "${CUSTOM_APP_NAME}"-tone-analyzer
 
+      cf restage "${CF_APP}"
+
       # View logs
       cf logs "${CF_APP}" --recent
 - name: Deploy to Production
@@ -96,6 +98,8 @@ stages:
         cf bind-service "${CF_APP}" "${CUSTOM_APP_NAME}"-stt
         cf bind-service "${CF_APP}" "${CUSTOM_APP_NAME}"-tts
         cf bind-service "${CF_APP}" "${CUSTOM_APP_NAME}"-tone-analyzer
+
+      cf restage "${CF_APP}"
 
       # View logs
       cf logs "${CF_APP}" --recent
