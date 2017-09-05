@@ -1,20 +1,20 @@
 declared-services:
- - backend-conversation:
+- backend-conversation:
   label: conversation
   plan: Lite
- - backend-cloudant:
+- backend-cloudant:
   label: cloudantNoSQLDB
   plan: Lite
- - backend-language-translator:
+- backend-language-translator:
   label: language_translator
   plan: Lite
- - backend-stt:
+- backend-stt:
   label: speech_to_text
   plan: Standard
- - backend-tts:
+- backend-tts:
   label: text_to_speech
   plan: Standard
- - backend-tone-analyzer:
+- backend-tone-analyzer:
   label: tone_analyzer
   plan: Lite
 applications:
