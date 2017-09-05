@@ -5,10 +5,3 @@ applications:
   domain: mybluemix.net
   name: backend-app
   disk_quota: 1024M
-  services:
-   - backend-conversation
-   - backend-cloudant
-   - backend-language-translator
-   - backend-stt
-   - backend-tts
-   - backend-tone-analyzer
