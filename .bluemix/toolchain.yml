@@ -67,7 +67,7 @@ backend-build:
       BE_PROD_ORG_NAME: "{{backend-deploy.parameters.prod-organization}}"
       BE_PROD_REGION_ID: "{{backend-deploy.parameters.prod-region}}"
       CUSTOM_APP_NAME: "{{name}}"
-      SETUP: true
+      SETUP: "true"
      execute: true
     services: ["backend-repo"]
   hidden: [form, description]

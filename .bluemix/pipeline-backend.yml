@@ -35,6 +35,7 @@ stages:
     type: text
   - name: SETUP
     value: ${SETUP}
+    type: text
   jobs:
   - name: Deploy Test
     type: deployer
@@ -45,7 +46,7 @@ stages:
       application: ${BE_CF_TEST_APP_NAME}
     script: |
       #!/bin/bash
-      if [ ${SETUP} = true ] ; then
+      if [ ${SETUP} = "true" ] ; then
         # Create Services
         cf create-service conversation free "${CUSTOM_APP_NAME}"-conversation
         cf create-service cloudantNoSQLDB Lite "${CUSTOM_APP_NAME}"-cloudant
@@ -65,7 +66,7 @@ stages:
 
       cf push "${CF_APP}" -f manifest-backend.yml
 
-      if [ ${SETUP} = true ] ; then
+      if [ ${SETUP} = "true" ] ; then
         # Bind Services
         cf bind-service "${CF_APP}" "${CUSTOM_APP_NAME}"-conversation
         cf bind-service "${CF_APP}" "${CUSTOM_APP_NAME}"-cloudant
@@ -94,6 +95,7 @@ stages:
     type: text
   - name: SETUP
     value: ${SETUP}
+    type: text
   jobs:
   - name: Deploy
     type: deployer
@@ -117,7 +119,7 @@ stages:
 
         cf restage "${CF_APP}"
 
-        ${SETUP} = false;
+        ${SETUP} = "false";
       fi
 
       # View logs
