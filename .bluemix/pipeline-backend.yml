@@ -80,6 +80,16 @@ stages:
 
       # View logs
       cf logs "${CF_APP}" --recent
+
+      if [ ${SETUP} = "true" ] ; then
+        echo "*** BACKEND CREDENTIALS ***"
+        cf service-key "${CF_APP}" "${CUSTOM_APP_NAME}"-conversation
+        cf service-key "${CF_APP}" "${CUSTOM_APP_NAME}"-cloudant
+        cf service-key "${CF_APP}" "${CUSTOM_APP_NAME}"-language-translator
+        cf service-key "${CF_APP}" "${CUSTOM_APP_NAME}"-stt
+        cf service-key "${CF_APP}" "${CUSTOM_APP_NAME}"-tts
+        cf service-key "${CF_APP}" "${CUSTOM_APP_NAME}"-tone-analyzer
+      fi
 - name: Deploy to Production
   inputs:
   - type: job
