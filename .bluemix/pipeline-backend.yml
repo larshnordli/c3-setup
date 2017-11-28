@@ -79,7 +79,7 @@ stages:
       fi
 
       # View logs
-      cf logs "${CF_APP}" --recent
+      # cf logs "${CF_APP}" --recent
 
       if [ ${SETUP} = "true" ] ; then
         echo "*** BACKEND CREDENTIALS ***"
@@ -133,7 +133,7 @@ stages:
       fi
 
       # View logs
-      cf logs "${CF_APP}" --recent
+      # cf logs "${CF_APP}" --recent
 hooks:
 - enabled: true
   label: null
