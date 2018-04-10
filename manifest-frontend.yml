@@ -3,6 +3,7 @@ applications:
   name: frontend-app
   path: dist/
   instances: 1
+  domain: mybluemix.net
   memory: 128M
   buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
   stack: cflinuxfs2

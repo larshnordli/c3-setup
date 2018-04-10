@@ -19,7 +19,8 @@ frontend-repo:
   service_id: hostedgit
   parameters:
     repo_name: "{{name}}-frontend"
-    repo_url: https://git.ng.bluemix.net/lars.henrik.nordli/c3-setup
+#    repo_url: https://git.ng.bluemix.net/lars.henrik.nordli/c3-setup
+    repo_url: https://github.com/larshnordli/c3-setup
     type: clone
     has_issues: false
 
@@ -28,7 +29,8 @@ backend-repo:
   service_id: hostedgit
   parameters:
     repo_name: "{{name}}-backend"
-    repo_url: https://git.ng.bluemix.net/lars.henrik.nordli/c3-setup
+#    repo_url: https://git.ng.bluemix.net/lars.henrik.nordli/c3-setup
+    repo_url: https://github.com/larshnordli/c3-setup
     type: clone
     has_issues: false
 
